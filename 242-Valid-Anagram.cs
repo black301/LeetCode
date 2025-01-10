@@ -1,7 +1,9 @@
-public class Solution {
-    public bool IsAnagram(string s, string t) {
-     
+        public class Solution
+        {
+            public bool IsAnagram(string s, string t)
+            {
                 Dictionary<char,int>dic = new Dictionary<char,int>();
+                int x= s.Length;
                 foreach (char c in s) {
                     if (dic.ContainsKey(c)) { 
                         dic[c]++;
@@ -17,14 +19,14 @@ public class Solution {
                     }
                     else
                     {
+                        x--;
                         dic[c]--;
-                    }   
+                    }
                 }
-                foreach (char c in dic.Keys) { 
-    if (dic[c] != 0){
-        return false;
-    }
-}
-                return true;   
-    }
-}
+                if (x != 0)
+                {
+                    return false; ;
+                }
+                return true;
+            }
+        }
