@@ -9,7 +9,6 @@ public class Solution
                 list.Add(BigInteger.Parse(number.Remove(i,1)));
             }
         }
-        list.Sort();
-        return list[list.Count-1].ToString();
+         return list.Max().ToString();
     }
 }
