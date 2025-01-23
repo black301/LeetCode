@@ -13,6 +13,7 @@
          if (root.left == null && root.right == null)
          {
              paths.Add(s);
+             return;
          }
          else
          {
