@@ -1,13 +1,25 @@
- public class Solution
- {
-     public int MaximumCount(int[] nums)
-     {
-         int countP = 0;
-         int countN = 0;
-         foreach (int num in nums) { 
-             if (num > 0) countP++;
-             if (num < 0) countN++;
-         }
-         return Math.Max(countP, countN);
-     }
- }
+
+        public class Solution
+        {
+            public int MaximumCount(int[] nums)
+            {
+                int l = 0;
+                int r = nums.Length;
+                while (l < r)
+                {
+                    int mid = (l + r) >> 1;
+                    if (nums[mid] >= 0) r = mid;
+                    else l = mid + 1;
+                }
+                int max = l;
+                l = 0;
+                r = nums.Length;
+                while (l < r)
+                {
+                    int mid = (l + r) >> 1;
+                    if (nums[mid] > 0) r = mid;
+                    else l = mid+1;
+                }
+                return Math.Max(nums.Length-l, max);
+            }
+        }
