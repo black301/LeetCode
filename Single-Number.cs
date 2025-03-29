@@ -1,5 +1,5 @@
 public class Solution {
     public int SingleNumber(int[] nums) {
-        return nums.Aggregate((x,y) => x ^ y);
-    }
+var result = nums.GroupBy(x => x).OrderBy(x=>x.Count());
+return result.First().Key;    }
 }
