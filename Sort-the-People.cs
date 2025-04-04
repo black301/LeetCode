@@ -2,16 +2,17 @@ public class Solution
 {
     public string[] SortPeople(string[] names, int[] heights)
     {
-        HashSet<(int,string)> set = new HashSet<(int, string)>();
-        for (int i = 0; i < names.Length; i++)
+        List<(int,string)> set = new List<(int, string)>();
+        long n = names.Length;
+        for (int i = 0; i < n; i++)
         {
             set.Add((heights[i], names[i]));
         }
+        set.Sort();
         string[] result = new string[names.Length];
-        for (int i = 0; i < names.Length; i++)
+        for (int i = 0; i < n; i++)
         {
-            result[i] = set.Max().Item2;
-            set.Remove(set.Max());
+            result[i] = set[(int)n-i-1].Item2;;
         }
         return result;
 
